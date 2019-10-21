@@ -9,7 +9,7 @@ import redis
 
 broker = redis.StrictRedis.from_url(
   os.environ.get("REDIS_URL", "redis://localhost"),
-  db=8, charset="utf-8", decode_responses=True
+  db=0, charset="utf-8", decode_responses=True
 )
 
 distribution = {

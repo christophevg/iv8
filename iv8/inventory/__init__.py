@@ -55,7 +55,7 @@ def get(db=0):
     db=db, charset="utf-8", decode_responses=True
   )
   i = {}
-  for key in r.keys("*"):
+  for key in r.keys("supplier*"):
     i[key] = r.hgetall(key)
   return i
 

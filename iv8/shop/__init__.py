@@ -5,10 +5,10 @@ logger = logging.getLogger(__name__)
 from iv8          import broker, inventory
 from iv8.socketio import socketio
 
-# simulating a read-cache on db instance 5, applying transactions to our copy
+# simulating a read-cache on db instance 1, applying transactions to our copy
 
 def process_inventory_transaction_created_event(transaction):
-  inventory.apply(transaction, db=5)
+  inventory.apply(transaction, db=1)
 
 # handle events delivered to our queue
 
