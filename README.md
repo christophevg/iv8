@@ -55,10 +55,10 @@ I wanted to know if tracking inventory for 2 suppliers, 2500 components each wit
 
 This would result in 2 * 2500 * 10 * 1000 = 50 million keys being mapped to hashes of 10 key/value pairs.
 
-`iv8/inventory.py` is a straigthforward script to load this into a Redis store:
+`iv8/inventory/populate.py` is a straigthforward script to load this into a Redis store:
 
 ```bash
-(venv) $ time python iv8/inventory.py 
+(venv) $ time python iv8/inventory/populate.py 
 0
 1
 2
