@@ -1,0 +1,34 @@
+<html>
+<head>
+  <link href="/static/app.css" rel="stylesheet">
+</head>
+<body>
+  <table id="inventory" data-scope="shop"></table>
+
+  <h1>Shop</h1>
+
+  <h2>/api/broker/ProductSold</h2>
+  <p>
+    Simulate selling a product, consisting of some units.
+  </p>
+  
+  <textarea id="msg" rows="9" cols="70">
+  {
+    "product" : "abc",
+    "from": "20191103",
+    "to": "20191104",
+    "units" : [
+      { "supplier": 1, "component": 3, "unit": 2 },
+      { "supplier": 1, "component": 3, "unit": 3 }
+    ] 
+  }    
+  </textarea><br>
+  <input type="submit" onclick="submit('/api/broker/ProductSold', 'msg');">
+
+  <script src="/static/vendor/jquery.min.js"></script>
+  <script src="/static/submit.js"></script>
+  <script src="/static/highlight.js"></script>
+  <script src="/static/inventory.js"></script>
+
+</body>
+</html>

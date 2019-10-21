@@ -1,0 +1,41 @@
+<html>
+<head>
+  <link href="/static/app.css" rel="stylesheet">
+</head>
+<body>
+
+  <h1>Event Log <input type="button" value="clear" onclick="empty();"></h1>
+
+  <div id="log"></div>
+
+  <script src="/static/vendor/jquery.min.js"></script>
+  <script src="/static/highlight.js"></script>
+
+  <script src="/static/vendor/socket.io.slim.js"></script>
+  <script>
+    $( document ).ready(function() {
+      socket = io();
+      socket.on("connect", function(){
+        $("#log").prepend("<div class=\"log\">connected</div>");
+      });
+      socket.on("disconnect", function(){
+        $("#log").prepend("<div class=\"log\">disconnected</div>");
+      });
+      socket.on("incoming", function(raw) {
+        msg = JSON.parse(raw)
+        $("#log").prepend(
+          "<div class=\"log\">" +
+            (new Date()).toString() + " : " + msg.event +
+            syntaxHighlight(JSON.stringify(msg.msg, null, 2)) +
+          "</div>"
+        );
+      });
+    });
+    
+    function empty() {
+      $("#log").empty();
+    }
+  </script>
+
+</body>
+</html>

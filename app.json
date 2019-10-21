@@ -1,0 +1,9 @@
+{
+  "name": "iv8",
+  "description": "A proof-of-concept.",
+  "website": "https://github.com/christophevg/iv8",
+  "addons" : [
+    "heroku-redis"
+  ],
+  "success_url": "/"
+}

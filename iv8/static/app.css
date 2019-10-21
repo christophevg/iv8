@@ -1,0 +1,59 @@
+table#inventory {
+  float: right;
+}
+
+table {
+  border: 1px solid #FFFFFF;
+  text-align: left;
+  border-collapse: collapse;
+}
+table td, table th {
+  border: 1px solid #FFFFFF;
+}
+table tbody td {
+}
+table tr:nth-child(even) {
+  background: #D0E4F5;
+}
+table thead {
+  background: #0B6FA4;
+  border-bottom: 5px solid #FFFFFF;
+}
+table thead th {
+  color: #FFFFFF;
+  border-left: 2px solid #FFFFFF;
+}
+table thead th:first-child {
+  border-left: none;
+}
+
+table tfoot {
+  color: #333333;
+  background: #D0E4F5;
+  border-top: 3px solid #444444;
+}
+table tfoot td {
+}
+
+/* basic syntax highlighting for json */
+
+pre {
+  padding: 5px;
+  margin: 5px;
+}
+
+.string { color: green; }
+.number { color: darkorange; }
+.boolean { color: blue; }
+.null { color: magenta; }
+.key { color: red; }    
+
+#log {
+  width: 100%;
+}
+.log {
+  width: 95%;
+  border: 1px solid black;
+  margin: 5px;
+  padding: 5px;
+}

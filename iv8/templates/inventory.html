@@ -1,0 +1,42 @@
+<html>
+<head>
+  <link href="/static/app.css" rel="stylesheet">
+</head>
+<body>
+  <table id="inventory" data-scope="inventory"></table>
+
+  <h1>Inventory <input type="button" value="reset" onclick="reset();"></h1>
+
+  <h2>/api/broker/UnitsAcquired</h2>
+  <p>
+    Simulate an incoming event from a buyer who has bought some new units.
+  </p>
+  <textarea id="msg1" rows="8" cols="70">
+{
+  "supplier" : "1",
+  "units" : [
+    { "component": 3, "unit": 2, "from": "20191101", "to": "20191105", "amount": 5 },
+    { "component": 3, "unit": 3, "from": "20191101", "to": "20191105", "amount": 3 }
+  ] 
+}    
+  </textarea><br>
+  <input type="submit" onclick="submit('/api/broker/UnitsAcquired', 'msg1');">
+
+  <script src="/static/vendor/jquery.min.js"></script>
+  <script src="/static/submit.js"></script>
+  <script src="/static/highlight.js"></script>
+  <script src="/static/inventory.js"></script>
+  
+  <script>
+    function reset() {
+      console.log("resetting");
+      $.ajax({
+        type: "DELETE",
+        url: "/api/inventory/reset",
+        contentType: "application/json"
+      });
+    }
+  </script>
+
+</body>
+</html>
